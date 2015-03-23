@@ -20,9 +20,20 @@ import android.view.ViewGroup;
 import com.jasonphillips.ribbit.R;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
+
+    public static final String TAG = MainActivity.class.getSimpleName();
+
+    public ParseUser mCurrentUser = ParseUser.getCurrentUser();
+    public ParseUser getCurrentUser() {
+        return mCurrentUser;
+    }
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -44,13 +55,13 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.inject(this);
+
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        if (mCurrentUser == null) {
+            navigateToLogin();
+        }
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
@@ -103,11 +114,24 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+
+            ParseUser.logOut();
+            mCurrentUser = ParseUser.getCurrentUser();
+
+            navigateToLogin();
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void navigateToLogin() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -195,5 +219,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return rootView;
         }
     }
+
 
 }
