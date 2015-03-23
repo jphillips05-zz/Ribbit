@@ -24,4 +24,8 @@
     <string name="error_invalid_credentials">Invalid username or password. Please try again</string>
     <string name="no_new_messages">No new messages.</string>
     <string name="no_new_friends">No new friends</string>
+    <string name="menu_edit_friend_label">Edit Friends</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="btn_ok">OK</string>
+    <string name="error_no_users">Could not find users.</string>
 </resources>

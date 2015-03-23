@@ -6,4 +6,8 @@
           android:title="@string/action_settings"
           android:orderInCategory="100"
           app:showAsAction="never"/>
+    <item android:id="@+id/action_edit_friends"
+          android:title="@string/menu_edit_friend_label"
+          android:orderInCategory="200"
+          app:showAsAction="never"/>
 </menu>

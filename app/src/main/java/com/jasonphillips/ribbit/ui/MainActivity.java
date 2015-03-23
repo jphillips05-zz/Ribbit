@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import com.jasonphillips.ribbit.R;
 import com.jasonphillips.ribbit.adapters.SectionsPagerAdapter;
@@ -51,6 +52,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_main);
 
         ButterKnife.inject(this);
@@ -112,15 +114,18 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-
-            ParseUser.logOut();
-            mCurrentUser = ParseUser.getCurrentUser();
-
-            navigateToLogin();
-
-            return true;
+        switch (id) {
+            case R.id.action_logout:
+                ParseUser.logOut();
+                mCurrentUser = ParseUser.getCurrentUser();
+                navigateToLogin();
+                return true;
+            case R.id.action_edit_friends:
+                Intent intent = new Intent(this, EditFriendsActivity.class);
+                startActivity(intent);
+                return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }

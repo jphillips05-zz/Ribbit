@@ -92,7 +92,7 @@ public class LoginActivity extends Activity {
                 @Override
                 public void done(ParseUser parseUser, ParseException e) {
                     setProgressBarIndeterminateVisibility(false);
-                    if(parseUser != null) {
+                    if (parseUser != null) {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -100,9 +100,9 @@ public class LoginActivity extends Activity {
 
                     } else {
                         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                        builder.setMessage(e.getMessage())
+                        builder.setMessage(getString(R.string.error_invalid_credentials))
                                 .setTitle(R.string.error_title)
-                                .setPositiveButton(getString(R.string.error_invalid_credentials), null);
+                                .setPositiveButton(getString(R.string.btn_ok), null);
 
                         builder.create().show();
                     }

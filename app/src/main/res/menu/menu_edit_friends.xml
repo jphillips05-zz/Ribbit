@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.jasonphillips.ribbit.ui.EditFriendsActivity">
+    <item android:id="@+id/action_settings"
+          android:title="@string/menu_edit_friend_label"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+</menu>
