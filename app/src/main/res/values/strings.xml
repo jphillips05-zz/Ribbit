@@ -2,9 +2,8 @@
     <string name="app_name">Ribbit</string>
 
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Inbox</string>
+    <string name="title_section2">Friends</string>
 
     <string name="hello_world">Hello world!</string>
 
@@ -23,4 +22,6 @@
     <string name="error_title">Opps!</string>
     <string name="login_error_message">Invalid credentials. Please try again.</string>
     <string name="error_invalid_credentials">Invalid username or password. Please try again</string>
+    <string name="no_new_messages">No new messages.</string>
+    <string name="no_new_friends">No new friends</string>
 </resources>
