@@ -2,12 +2,19 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
-    <item android:id="@+id/action_logout"
-          android:title="@string/action_settings"
-          android:orderInCategory="100"
-          app:showAsAction="never"/>
+
     <item android:id="@+id/action_edit_friends"
           android:title="@string/menu_edit_friend_label"
+          android:orderInCategory="100"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_camera"
+          android:title="@string/camera_label"
           android:orderInCategory="200"
+          app:showAsAction="always"
+          android:icon="@drawable/ic_action_camera"/>
+
+    <item android:id="@+id/action_logout"
+          android:title="@string/action_settings"
+          android:orderInCategory="1000"
           app:showAsAction="never"/>
 </menu>

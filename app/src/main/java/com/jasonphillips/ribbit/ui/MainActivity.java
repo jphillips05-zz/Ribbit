@@ -2,6 +2,8 @@ package com.jasonphillips.ribbit.ui;
 
 import java.util.Locale;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -34,6 +36,23 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     public ParseUser mCurrentUser = ParseUser.getCurrentUser();
 
+    protected DialogInterface.OnClickListener mDialogListener = new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case 0: //take a picture
+                    break;
+                case 1: //take video
+                    break;
+                case 2: //choose picture
+                    break;
+                case 3: //choose video
+                    break;
+            }
+        }
+    };
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -52,7 +71,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_main);
 
         ButterKnife.inject(this);
@@ -106,6 +125,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -124,6 +144,10 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 Intent intent = new Intent(this, EditFriendsActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_camera:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setItems(R.array.camera_choices, mDialogListener);
+                builder.create().show();
         }
 
 

@@ -28,4 +28,11 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="btn_ok">OK</string>
     <string name="error_no_users">Could not find users.</string>
+    <string name="camera_label">Camera</string>
+    <string-array name="camera_choices">
+        <item>Take Picture</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
 </resources>
