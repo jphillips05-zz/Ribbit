@@ -29,10 +29,22 @@
     <string name="btn_ok">OK</string>
     <string name="error_no_users">Could not find users.</string>
     <string name="camera_label">Camera</string>
+    <string name="error_external_storage">There was a problem accessing your devices external storage</string>
+    <string name="error_failed_mk_dir">Failed to create directory</string>
+    <string name="error_activity_result">Sorry, there was an error!</string>
+    <string name="error_could_not_take_video">Could not take video</string>
+    <string name="warning_video_size">Video must be less than 10mb</string>
+    <string name="error_file_too_large">The selected file is too large</string>
     <string-array name="camera_choices">
         <item>Take Picture</item>
         <item>Take Video</item>
         <item>Choose Picture</item>
         <item>Choose Video</item>
     </string-array>
+    <string name="title_activity_recipients">Choose</string>
+    <string name="empty_recipients">Choose some friends first</string>
+    <string name="send_label">Send</string>
+    <string name="error_file_selected">There was an error with the file you selected</string>
+    <string name="success_message">Message Sent</string>
+    <string name="error_sending_message">There was an error sending your message.</string>
 </resources>
