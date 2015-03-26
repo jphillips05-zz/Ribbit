@@ -16,11 +16,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.jasonphillips.ribbit.Constants;
 import com.jasonphillips.ribbit.R;
 import com.jasonphillips.ribbit.adapters.SectionsPagerAdapter;
+import com.parse.FindCallback;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -29,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.ButterKnife;
@@ -44,6 +51,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
     public static final int FILE_SIZE_LIMIT = 1024 * 1024 * 10; //10mb
+    private List<ParseObject> mMessages;
 
     protected Uri mMediaUri;
 
@@ -296,15 +304,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 ParseUser.logOut();
                 mCurrentUser = ParseUser.getCurrentUser();
                 navigateToLogin();
-                return true;
+                break;
             case R.id.action_edit_friends:
                 Intent intent = new Intent(this, EditFriendsActivity.class);
                 startActivity(intent);
-                return true;
+                break;
             case R.id.action_camera:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setItems(R.array.camera_choices, mDialogListener);
                 builder.create().show();
+                break;
         }
 
 

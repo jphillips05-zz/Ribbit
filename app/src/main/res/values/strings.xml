@@ -47,4 +47,5 @@
     <string name="error_file_selected">There was an error with the file you selected</string>
     <string name="success_message">Message Sent</string>
     <string name="error_sending_message">There was an error sending your message.</string>
+    <string name="title_activity_view_image">Image</string>
 </resources>
