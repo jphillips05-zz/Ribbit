@@ -40,8 +40,8 @@ public class RecipientsActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipients);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);

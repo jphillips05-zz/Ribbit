@@ -4,29 +4,24 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import com.jasonphillips.ribbit.Constants;
 import com.jasonphillips.ribbit.R;
 import com.jasonphillips.ribbit.adapters.SectionsPagerAdapter;
-import com.parse.FindCallback;
 import com.parse.ParseAnalytics;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -177,6 +172,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_main);
@@ -270,7 +267,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             }
 
             Intent recipientsIntent = new Intent(this, RecipientsActivity.class);
-            if(requestCode == CHOOSE_PHOTO_REQ || requestCode == TAKE_PHOTO_REQ) {
+            if (requestCode == CHOOSE_PHOTO_REQ || requestCode == TAKE_PHOTO_REQ) {
                 recipientsIntent.putExtra("fileType", "image");
             } else {
                 recipientsIntent.putExtra("fileType", "video");

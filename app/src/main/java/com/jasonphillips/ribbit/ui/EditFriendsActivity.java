@@ -31,8 +31,8 @@ public class EditFriendsActivity extends ListActivity {
     protected ParseUser mCurrentUser;
 
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_friends);
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
