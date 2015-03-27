@@ -39,6 +39,11 @@ public class SignupActivity extends ActionBarActivity {
 
     }
 
+    @OnClick(R.id.sign_up_cancel)
+    public void cancel(View view) {
+        finish();
+    }
+
     @OnClick(R.id.sign_up_button)
     public void signUpClick(View view) {
         String username = mUsername.getText().toString().trim();

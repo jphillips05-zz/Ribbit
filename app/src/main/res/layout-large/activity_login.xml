@@ -1,0 +1,53 @@
+<RelativeLayout
+    style="@style/auth_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jasonphillips.ribbit.ui.LoginActivity">
+
+    <ImageView
+        android:id="@+id/background_image"
+        style="@style/auth_background_image"/>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/auth_background_title"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        style="@style/auth_background_subtitle"/>
+
+    <LinearLayout
+        android:id="@+id/login_box"
+        style="@style/auth_sign_in_box"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true">
+
+
+        <EditText
+            android:id="@+id/username_text_view"
+            style="@style/auth_sign_in_username">
+
+            <requestFocus/>
+        </EditText>
+
+        <EditText
+            android:id="@+id/password_text_view"
+            style="@style/auth_sign_in_password"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        style="@style/auth_sign_in_button"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/sign_up_text_view"
+        style="@style/auth_sign_up_text"/>
+
+</RelativeLayout>
