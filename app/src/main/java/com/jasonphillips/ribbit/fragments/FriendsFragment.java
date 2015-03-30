@@ -2,16 +2,16 @@ package com.jasonphillips.ribbit.fragments;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
 
 import com.jasonphillips.ribbit.Constants;
 import com.jasonphillips.ribbit.R;
-import com.jasonphillips.ribbit.ui.MainActivity;
+import com.jasonphillips.ribbit.adapters.UserAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -23,17 +23,22 @@ import java.util.List;
 /**
  * Created by jasonphillips on 3/23/15.
  */
-public class FriendsFragment extends ListFragment {
+public class FriendsFragment extends Fragment {
 
     private static String TAG = FriendsFragment.class.getSimpleName();
 
     protected List<ParseUser> mFriends;
     protected ParseRelation<ParseUser> mFriendsRelations;
     protected ParseUser mCurrentUser;
+    protected GridView mGridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
+        mGridView = (GridView) rootView.findViewById(R.id.friends_grid);
+
+        TextView emptyTextView = (TextView) rootView.findViewById(android.R.id.empty);
+        mGridView.setEmptyView(emptyTextView);
 
         return rootView;
     }
@@ -65,16 +70,20 @@ public class FriendsFragment extends ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                            getListView().getContext(),
-                            android.R.layout.simple_list_item_1,
-                            usernames);
+                    if(mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(
+                                getActivity(),
+                                mFriends
+                        );
+                        mGridView.setAdapter(adapter);
+                    } else {
+                        ((UserAdapter)mGridView.getAdapter()).Refill(mFriends);
+                    }
 
-                    setListAdapter(adapter);
 
 
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setMessage(e.getMessage())
                             .setTitle(R.string.error_title)
                             .setPositiveButton(getString(R.string.btn_ok), null);

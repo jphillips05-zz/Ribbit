@@ -21,6 +21,10 @@
         <item name="android:divider">@null</item>
     </style>
 
+    <style name="Theme.Ribit.LightPurpleBackground.GridView">
+        <item name="android:padding">@dimen/user_grid_spacing</item>
+    </style>
+
     <style name="Theme.Ribit.Overflow" parent="Base.Widget.AppCompat.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_menu_overflow</item>
     </style>
