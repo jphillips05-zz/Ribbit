@@ -7,13 +7,14 @@
 
     <ImageView
         android:id="@+id/user_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:src="@drawable/avatar_empty"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
+        style="@style/grid_image"/>
+
+    <ImageView
+        android:id="@+id/friend_checkbox"
+        style="@style/grid_image"
+        android:src="@drawable/avatar_selected"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/name_label"

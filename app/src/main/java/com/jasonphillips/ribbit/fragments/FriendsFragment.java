@@ -34,8 +34,8 @@ public class FriendsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
-        mGridView = (GridView) rootView.findViewById(R.id.friends_grid);
+        View rootView = inflater.inflate(R.layout.user_grid, container, false);
+        mGridView = (GridView) rootView.findViewById(R.id.user_grid);
 
         TextView emptyTextView = (TextView) rootView.findViewById(android.R.id.empty);
         mGridView.setEmptyView(emptyTextView);
